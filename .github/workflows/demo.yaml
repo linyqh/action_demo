@@ -1,0 +1,16 @@
+on: push
+jobs:
+  my_job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 获取代码
+        uses: actions/checkout@v4
+
+      - name: 我的第一个步骤
+        run: echo "Hello, world!"
+
+      - name: 打印当前路径
+        run: pwd
+
+      - name: 打印当前目录下的文件
+        run: ls

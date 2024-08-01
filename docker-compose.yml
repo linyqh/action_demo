@@ -1,0 +1,33 @@
+services:
+
+  db:
+    image: postgres:16.1-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./mydata/postgresql/data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    networks:
+      - network-db
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4:8.9
+    networks:
+      - network-db
+    env_file:
+      - .env
+    ports:
+      - 5433:80
+    volumes:
+      - ./mydata/pgadmin/data:/var/lib/pgadmin
+    restart: always
+
+
+networks:
+  network-db:
+    ipam:
+      driver: default
+      config:
+        - subnet: 111.112.0.0/16
