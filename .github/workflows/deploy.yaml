@@ -1,0 +1,20 @@
+on: push
+name: deploy
+
+jobs:
+  deploy:
+    runs-on:
+      - self-hosted
+      - production
+    env:
+      POSTGRES_SERVER: ${{ secrets.POSTGRES_SERVER }}
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+      PGADMIN_DEFAULT_EMAIL: ${{ secrets.POSTGRES_PASSWORD }}
+      PGADMIN_DEFAULT_PASSWORD: ${{ secrets.FIRST_SUPERUSER_PASSWORD }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - run: docker compose -f docker-compose.yml build
+      - run: docker compose -f docker-compose.yml up -d
