@@ -6,8 +6,12 @@ services:
       - 5432:5432
     volumes:
       - ./mydata/postgresql/data:/var/lib/postgresql/data
-    env_file:
-      - .env
+    environment:
+      # Postgres 数据库配置
+      POSTGRES_SERVER={$POSTGRES_SERVER?Variable not set}
+      POSTGRES_USER={$POSTGRES_USER?Variable not set}
+      POSTGRES_PASSWORD={$POSTGRES_PASSWORD?Variable not set}
+      POSTGRES_DB={$POSTGRES_DB?Variable not set}
     networks:
       - network-db
     restart: always
@@ -16,8 +20,9 @@ services:
     image: dpage/pgadmin4:8.9
     networks:
       - network-db
-    env_file:
-      - .env
+    environment:
+      PGADMIN_DEFAULT_EMAIL={$PGADMIN_DEFAULT_EMAIL?Variable not set}
+      PGADMIN_DEFAULT_PASSWORD={$PGADMIN_DEFAULT_PASSWORD?Variable not set}
     ports:
       - 5433:80
     volumes:
