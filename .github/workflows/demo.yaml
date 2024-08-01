@@ -1,5 +1,5 @@
 on: push
-
+name: 我的workflow
 jobs:
   my_job_1:
     runs-on: ubuntu-latest
