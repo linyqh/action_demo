@@ -29,3 +29,5 @@ jobs:
             reporter: 'terminal'
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+
+      - run: echo "{{ steps.wemake-python-styleguide.outputs.output }}"
