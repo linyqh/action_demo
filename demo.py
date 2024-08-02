@@ -6,4 +6,9 @@ def bubble_sort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
 arr = [5, 3, 8, 1, 9, 2]
-print(bubble_sort(arr))
+
+try:
+    print(bubble_sort(arr))
+except Exception:
+    # do nothing!
+    pass
