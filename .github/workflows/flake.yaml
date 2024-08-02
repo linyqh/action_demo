@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install markupsafe==2.0.1
+      - run: pip install markupsafe==2.0.0
       - name: 检查代码
         uses: grantmcconnaughey/lintly-flake8-github-action@v1.0
         with:
