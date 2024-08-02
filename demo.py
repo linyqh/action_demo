@@ -7,6 +7,5 @@ def bubble_sort(arr):
     return arr
 
 
-if __name__ == '__main__':
-    arr = [3, 5, 1, 7, 9, 2]
-    print(bubble_sort(arr))
+arr = [3, 5, 1, 7, 9, 2]
+print(bubble_sort(arr))
