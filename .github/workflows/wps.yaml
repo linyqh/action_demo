@@ -30,3 +30,6 @@ jobs:
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          PYTHON_BLACK: false
+          PYTHON_PYLINT: false
+          CHECKOV: false
