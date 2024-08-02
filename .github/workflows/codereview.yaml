@@ -21,6 +21,9 @@ jobs:
 #          # optional
 #          LANGUAGE: Chinese
 ##          PROMPT:
+      - run: |
+          pwd
+          ls -al
       - name: python编码风格检查
         uses: wemake-services/wemake-python-styleguide@master
         with:
