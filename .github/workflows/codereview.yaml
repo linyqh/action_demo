@@ -24,7 +24,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: python编码风格检查
-        uses: wemake-services/wemake-python-styleguide@master
+        uses: wemake-services/wemake-python-styleguide@0.19.2
         with:
             reporter: 'github-pr-review'
         env:
