@@ -31,5 +31,7 @@ services:
 
 networks:
   network-db:
-    driver: bridge
-    internal: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 111.112.0.0/16
