@@ -13,17 +13,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: 代码逻辑检查
-        uses: anc95/ChatGPT-CodeReview@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # optional
-          LANGUAGE: Chinese
-#          PROMPT:
+#      - name: GPT代码逻辑检查
+#        uses: anc95/ChatGPT-CodeReview@main
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+#          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+#          # optional
+#          LANGUAGE: Chinese
+##          PROMPT:
       - name: python编码风格检查
         uses: wemake-services/wemake-python-styleguide@master
         with:
             reporter: 'github-pr-review'
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+      - run: echo "{{ steps.wemake-python-styleguide.outputs.output }}"
