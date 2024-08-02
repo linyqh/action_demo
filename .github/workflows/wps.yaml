@@ -2,8 +2,7 @@ name: wps
 
 on:
   pull_request:
-    branches:
-      - master
+    types: [opened, reopened]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
