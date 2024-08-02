@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Execute the pycharm-security action
     steps:
-      - uses: actions/checkout@v1
-      - name: Run PyCharm Security
+      - uses: actions/checkout@v4
+      - name: 运行 PyCharm 安全性
         uses: tonybaloney/pycharm-security@master
