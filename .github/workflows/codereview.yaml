@@ -23,12 +23,9 @@ jobs:
 ##          PROMPT:
       - name: checkout
         uses: actions/checkout@v4
-      - run: |
-          pwd
-          ls -al
       - name: python编码风格检查
         uses: wemake-services/wemake-python-styleguide@master
         with:
-            reporter: 'github-pr-review'
+            reporter: 'terminal'
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
