@@ -8,13 +8,16 @@ jobs:
   security_checks:
     runs-on: ubuntu-latest
     steps:
-      - name: 代码安全检查
-        uses: wemake-services/wemake-python-styleguide
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: python编码风格检查
+        uses: wemake-services/wemake-python-styleguide@master
         with:
-          reporter: 'github-pr-review'
+            reporter: 'github-pr-review'
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+
         run: |
-          echo "TEST1=first line \
-           second line \
-           third line" >> $GITHUB_OUTPUT
+         echo "TEST1=first line \
+          second line \
+          third line" >> $GITHUB_OUTPUT
