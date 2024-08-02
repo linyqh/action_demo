@@ -7,6 +7,7 @@ permissions:
 on:
   pull_request:
     types: [opened, reopened]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -21,7 +22,7 @@ jobs:
           LANGUAGE: Chinese
 #          PROMPT:
       - name: python编码风格检查
-        uses: wemake-services/wemake-python-styleguide
+        uses: wemake-services/wemake-python-styleguide@master
         with:
             reporter: 'github-pr-review'
         env:
