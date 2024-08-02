@@ -21,10 +21,14 @@ jobs:
 #          # optional
 #          LANGUAGE: Chinese
 ##          PROMPT:
+      - name: checkout
+        uses: actions/checkout@v4
+      - run: |
+          pwd
+          ls -al
       - name: python编码风格检查
         uses: wemake-services/wemake-python-styleguide@master
         with:
             reporter: 'github-pr-review'
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-      - run: echo "{{ steps.wemake-python-styleguide.outputs.output }}"
